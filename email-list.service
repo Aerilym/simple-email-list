@@ -1,0 +1,29 @@
+[Unit]
+Description=Email List Subscription API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/email-list
+ExecStart=/usr/bin/node /opt/email-list/dist/api/index.js
+Restart=on-failure
+RestartSec=5
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=RATE_LIMIT_ENABLED=true
+
+# Run as a non-root user (create with: useradd -r -s /sbin/nologin email-list)
+User=email-list
+Group=email-list
+
+# Allow writing to the data directory only; everything else is read-only
+ReadWritePaths=/opt/email-list/data
+
+# Hardening
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

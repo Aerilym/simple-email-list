@@ -1,0 +1,37 @@
+{
+  "name": "simple-email-list",
+  "version": "1.0.0",
+  "description": "Simple mailing list subscription API",
+  "author": "Aerilym",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/api/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aerilym/simple-email-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aerilym/simple-email-list/issues"
+  },
+  "homepage": "https://github.com/Aerilym/simple-email-list#readme",
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/api/index.js",
+    "import": "node dist/scripts/import.js",
+    "export": "node dist/scripts/export.js",
+    "summary": "node dist/scripts/summary.js",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "lint": "biome lint src",
+    "format": "biome format --write src",
+    "check": "biome check --write src"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.3.3"
+  }
+}
