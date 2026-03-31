@@ -1,4 +1,4 @@
-# simple-email-list
+# Simple Email List
 
 A minimal API to collect email subscriptions with SQLite.
 
@@ -129,3 +129,15 @@ The service expects the app to be deployed to `/opt/email-list`.
 pnpm test     # build + run tests
 pnpm check    # format + lint + fix
 ```
+
+## Contributing
+
+The goal of this project is a long-running, stable service that requires minimal maintenance. Contributions should respect that goal.
+
+**No runtime dependencies.** The API uses only Node.js built-ins and SQLite (via the built-in `node:sqlite` module available in Node.js 22+). Do not add npm packages to `dependencies`. If something can be done with the standard library, it should be.
+
+**LTS versions only.** Node.js and all tooling should track Active or Maintenance LTS releases. Avoid features or syntax that require a non-LTS version.
+
+**Stability over features.** Prefer simple, explicit code over clever abstractions. New features should have a clear operational use case and should not increase the maintenance surface.
+
+**It just an email list.** This is a simple email collector, nothing more. No new production-facing features should be added to extend functionality, the production API surface should do nothing more than collect emails.
